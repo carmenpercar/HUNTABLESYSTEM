@@ -18,13 +18,12 @@ public class HaunterComponent : MonoBehaviour
                 Destroy(hitInfo.collider.gameObject);
             }
             else {
-
-                completeCircleSprite.CompleteCircle(secondsToCatch);
+                CompleteCircle();
             }
         }
         else {
             ResetCountDown();
-            completeCircleSprite.ResetCircle();
+            ResetCircle();
         }
        
     }
@@ -42,6 +41,11 @@ public class HaunterComponent : MonoBehaviour
     private void ResetCountDown() {
         elapsedSecondsLookingToCatchable -= elapsedSecondsLookingToCatchable;
     }
-    
+    private void CompleteCircle() {
+        completeCircleSprite.CompleteCircle(secondsToCatch);
+    }
+    private void ResetCircle() {
+        completeCircleSprite.ResetCircle();
+    }
 
 }

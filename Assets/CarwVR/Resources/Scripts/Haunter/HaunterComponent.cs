@@ -8,6 +8,7 @@ public class HaunterComponent : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float maxDistance;
     [SerializeField] private float secondsToCatch;
+    [SerializeField] private CompleteCircleSprite completeCircleSprite;
     private float elapsedSecondsLookingToCatchable;
     private RaycastHit hitInfo; 
     private void Update() {
@@ -16,9 +17,14 @@ public class HaunterComponent : MonoBehaviour
             if (CheckIfCOuntDownOver()) {
                 Destroy(hitInfo.collider.gameObject);
             }
+            else {
+
+                completeCircleSprite.CompleteCircle(secondsToCatch);
+            }
         }
         else {
             ResetCountDown();
+            completeCircleSprite.ResetCircle();
         }
        
     }
